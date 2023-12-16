@@ -5,31 +5,54 @@ package com.martinrea.pmpgo.dev;
  */
 
 @javax.persistence.Entity
+@org.kie.api.definition.type.Label("Input data for the business process")
 public class ProcessData implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "PROCESSDATA_ID_GENERATOR")
-    @javax.persistence.Id
-    @javax.persistence.SequenceGenerator(name = "PROCESSDATA_ID_GENERATOR", sequenceName = "PROCESSDATA_ID_SEQ")
-    private java.lang.Long id;
+	@javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO, generator = "PROCESSDATA_ID_GENERATOR")
+	@javax.persistence.Id
+	@javax.persistence.SequenceGenerator(name = "PROCESSDATA_ID_GENERATOR", sequenceName = "PROCESSDATA_ID_SEQ")
+	private java.lang.Long id;
 
-    public ProcessData() {
-    }
-    
-    public ProcessData(java.lang.Long id) {
-        this.id = id;
-    }
+	@org.kie.api.definition.type.Label(value = "Initiator")
+	private java.lang.String initiator;
 
-    public java.lang.Long getId() {
-        return this.id;
-    }
-    
-    public void setId(java.lang.Long id) {
-        this.id = id;
-    }
+	@org.kie.api.definition.type.Label(value = "Started On")
+	private java.util.Date startedOn;
 
+	public ProcessData() {
+	}
 
+	public java.lang.Long getId() {
+		return this.id;
+	}
 
+	public void setId(java.lang.Long id) {
+		this.id = id;
+	}
+
+	public java.lang.String getInitiator() {
+		return this.initiator;
+	}
+
+	public void setInitiator(java.lang.String initiator) {
+		this.initiator = initiator;
+	}
+
+	public java.util.Date getStartedOn() {
+		return this.startedOn;
+	}
+
+	public void setStartedOn(java.util.Date startedOn) {
+		this.startedOn = startedOn;
+	}
+
+	public ProcessData(java.lang.Long id, java.lang.String initiator,
+			java.util.Date startedOn) {
+		this.id = id;
+		this.initiator = initiator;
+		this.startedOn = startedOn;
+	}
 
 }
