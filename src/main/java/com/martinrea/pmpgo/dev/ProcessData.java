@@ -15,11 +15,14 @@ public class ProcessData implements java.io.Serializable {
 	@javax.persistence.SequenceGenerator(name = "PROCESSDATA_ID_GENERATOR", sequenceName = "PROCESSDATA_ID_SEQ")
 	private java.lang.Long id;
 
-	@org.kie.api.definition.type.Label(value = "Initiator")
+	@org.kie.api.definition.type.Label("Initiator")
 	private java.lang.String initiator;
 
-	@org.kie.api.definition.type.Label(value = "Started On")
+	@org.kie.api.definition.type.Label("Started On")
 	private java.util.Date startedOn;
+
+	@org.kie.api.definition.type.Label(value = "Current Progress of the Process in Percentage")
+	private java.lang.Integer currentPercentage;
 
 	public ProcessData() {
 	}
@@ -48,11 +51,20 @@ public class ProcessData implements java.io.Serializable {
 		this.startedOn = startedOn;
 	}
 
+	public java.lang.Integer getCurrentPercentage() {
+		return this.currentPercentage;
+	}
+
+	public void setCurrentPercentage(java.lang.Integer currentPercentage) {
+		this.currentPercentage = currentPercentage;
+	}
+
 	public ProcessData(java.lang.Long id, java.lang.String initiator,
-			java.util.Date startedOn) {
+			java.util.Date startedOn, java.lang.Integer currentPercentage) {
 		this.id = id;
 		this.initiator = initiator;
 		this.startedOn = startedOn;
+		this.currentPercentage = currentPercentage;
 	}
 
 }
